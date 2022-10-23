@@ -6,6 +6,7 @@ import {
   Stack,
   useColorModeValue,
   useDisclosure,
+  useTheme,
   VStack,
 } from "@chakra-ui/react";
 import { Link as LinkType } from "../../types/link";
@@ -19,6 +20,7 @@ type NavBarProps = {
 };
 
 const NavBar: React.FC<NavBarProps> = (props: NavBarProps) => {
+  const theme = useTheme();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleToggle = (): void => (isOpen ? onClose() : onOpen());
@@ -42,7 +44,8 @@ const NavBar: React.FC<NavBarProps> = (props: NavBarProps) => {
         py={1}
         fontSize={"lg"}
         borderRadius={"lg"}
-        color={useColorModeValue("gray.800", "white")}
+        // color={useColorModeValue("gray.800", "white")}
+        _hover={{ color: theme.colors.clicked.main }}
         onClick={_handleLinkOnClick}
         offset={-75}
       >
@@ -63,7 +66,8 @@ const NavBar: React.FC<NavBarProps> = (props: NavBarProps) => {
       pr={{ base: 0, sm: 4 }}
       py={2}
       pos={"fixed"}
-      bgColor={useColorModeValue("white", "gray.800")}
+      bgColor={theme.colors.white}
+      // bgColor={useColorModeValue("white", "gray.800")}
       boxShadow="2xl"
       zIndex={"sticky"}
     >
@@ -78,16 +82,17 @@ const NavBar: React.FC<NavBarProps> = (props: NavBarProps) => {
           as="h1"
           size="lg"
           letterSpacing={"tighter"}
-          color={useColorModeValue("gray.800", "white")}
+          _hover={{ color: theme.colors.clicked.main }}
+          // color={useColorModeValue("gray.800", "white")}
         >
           Danny Lu
         </Heading>
       </Flex>
 
       <Flex align={"center"}>
-        <Box mr={2} display={{ base: "block", sm: "none" }}>
+        {/* <Box mr={2} display={{ base: "block", sm: "none" }}>
           <div>Dark mode</div>
-        </Box>
+        </Box> */}
 
         <Box display={{ base: "block", sm: "none" }}>
           <Hamburger
@@ -135,9 +140,9 @@ const NavBar: React.FC<NavBarProps> = (props: NavBarProps) => {
           </Stack>
         )}
 
-        <Box display={{ base: "none", sm: "block" }}>
+        {/* <Box display={{ base: "none", sm: "block" }}>
           <div>Dark Mode</div>
-        </Box>
+        </Box> */}
       </Flex>
     </Flex>
   );

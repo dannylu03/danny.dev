@@ -31,7 +31,6 @@ const Index: React.FC = () => {
     <>
       <NavBar links={links} />
       <Container as="main" maxW="100%" p={0} centerContent>
-        {/* <div>Hi</div> */}
         <HomePage />
       </Container>
     </>

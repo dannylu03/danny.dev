@@ -10,7 +10,9 @@ import {
   Link,
   Text,
   useColorMode,
+  useTheme,
 } from "@chakra-ui/react";
+import { SocialIcon } from "react-social-icons";
 import { motion } from "framer-motion";
 import { Link as reactLink } from "react-scroll";
 
@@ -20,7 +22,14 @@ import { Link as reactLink } from "react-scroll";
 //   isMobile?: boolean;
 // };
 
+const Socials = [
+  "https://www.linkedin.com/in/danny-lu/",
+  "https://github.com/dannylu03",
+  "https://devpost.com/dannylu03",
+];
+
 const HomePage: React.FC = () => {
+  const theme = useTheme();
   const { colorMode } = useColorMode();
 
   return (
@@ -39,22 +48,36 @@ const HomePage: React.FC = () => {
               initial={{ y: -300 }}
               animate={{ y: 0, transition: { type: "spring" } }}
             >
-              <Heading size={"2xl"}>Hi👋, I&apos;m Danny!</Heading>
-              <Text mt={2} fontSize="lg">
-                {/* {props.summary} */}
+              <Heading size={"2xl"} color={theme.colors.clicked.main}>
+                Hey, I&apos;m Danny!
+              </Heading>
+              <Text mt={4} fontSize="lg">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                 Eligendi suscipit accusamus dolorum culpa ullam sunt blanditiis
                 nihil cupiditate consequuntur voluptate, error qui atque
                 praesentium est quam non ipsum, repudiandae maiores!
               </Text>
-              <HStack mt={2}>
-                <div>Socials</div>
-                {/* <Socials socials={props.socials} /> */}
+              <HStack mt={10} mb={4}>
+                {Socials.map((url, idx) => {
+                  return (
+                    <motion.div
+                      whileHover={{ scale: 1.25 }}
+                      whileTap={{ scale: 0.9 }}
+                      key={idx}
+                    >
+                      <SocialIcon
+                        url={url}
+                        target="_blank"
+                        style={{ height: 50, width: 50 }}
+                      />
+                    </motion.div>
+                  );
+                })}
               </HStack>
               <Box mt={4}>
                 <ButtonGroup gap="3">
                   <Button
-                    colorScheme="cyan"
+                    bgColor={theme.colors.clicked.main}
                     variant="solid"
                     width={{ base: "120px", sm: "200px" }}
                     p={0}
@@ -68,20 +91,21 @@ const HomePage: React.FC = () => {
                       borderRadius={"lg"}
                       offset={-75}
                       width={"100%"}
+                      color="white"
                     >
                       Get in touch
                     </Link>
                   </Button>
                   <Button
-                    colorScheme="cyan"
+                    bgColor={theme.colors.clicked.main}
                     variant="outline"
                     width={{ base: "120px", sm: "200px" }}
                     p={0}
                   >
                     <Link
-                      href="hafid_ziti_resume.pdf"
+                      href="Danny_Lu_Resume.pdf"
                       width={"100%"}
-                      isExternal
+                      color="white"
                     >
                       Resume
                     </Link>
