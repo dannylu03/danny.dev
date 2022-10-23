@@ -51,7 +51,7 @@ const HomePage: React.FC = () => {
               <Heading size={"2xl"} color={theme.colors.clicked.main}>
                 Hey, I&apos;m Danny!
               </Heading>
-              <Text mt={4} fontSize="lg">
+              <Text mt={4} fontSize="xl">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                 Eligendi suscipit accusamus dolorum culpa ullam sunt blanditiis
                 nihil cupiditate consequuntur voluptate, error qui atque
@@ -75,12 +75,10 @@ const HomePage: React.FC = () => {
                 })}
               </HStack>
               <Box mt={4}>
-                <ButtonGroup gap="3">
-                  <Button
+                {/* <ButtonGroup gap="3"> */}
+                {/* <Button
                     bgColor={theme.colors.clicked.main}
-                    variant="solid"
                     width={{ base: "120px", sm: "200px" }}
-                    p={0}
                   >
                     <Link
                       as={reactLink}
@@ -95,22 +93,21 @@ const HomePage: React.FC = () => {
                     >
                       Get in touch
                     </Link>
-                  </Button>
-                  <Button
-                    bgColor={theme.colors.clicked.main}
-                    variant="outline"
-                    width={{ base: "120px", sm: "200px" }}
-                    p={0}
+                  </Button> */}
+                <Button
+                  bgColor={theme.colors.clicked.main}
+                  width={{ base: "120px", sm: "200px" }}
+                >
+                  <Link
+                    href="Danny_Lu_Resume.pdf"
+                    target="_blank"
+                    width={"100%"}
+                    color="white"
                   >
-                    <Link
-                      href="Danny_Lu_Resume.pdf"
-                      width={"100%"}
-                      color="white"
-                    >
-                      Resume
-                    </Link>
-                  </Button>
-                </ButtonGroup>
+                    Resume
+                  </Link>
+                </Button>
+                {/* </ButtonGroup> */}
               </Box>
             </motion.div>
           </Box>
