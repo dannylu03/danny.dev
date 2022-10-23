@@ -22,7 +22,7 @@ const Experience: React.FC<ExperienceProps> = (props: ExperienceProps) => {
   return (
     <>
       <Heading size={"xl"} color={theme.colors.clicked.main} textAlign={"left"}>
-        Experiences
+        Work Experiences
       </Heading>
       <Text fontSize="lg" mt={5}>
         Here is a timeline of my professional experiences!

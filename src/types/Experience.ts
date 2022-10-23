@@ -10,7 +10,7 @@ export interface Experience {
   company?: string;
   description: string;
   image: string;
-  period: string;
+  period?: string;
   color: string;
   technologies: Technology[];
   link?: string;

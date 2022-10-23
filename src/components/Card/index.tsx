@@ -99,13 +99,20 @@ const Card: React.FC<CardProps> = ({
                 </Text>
               </Stack>
               <Wrap mb={2}>
-                {technologies.map((techno: Technology, index: number) => (
-                  <WrapItem key={index}>
+                {technologies.map((technology: Technology, idx: number) => (
+                  <WrapItem key={idx}>
                     <Tag size={"sm"} variant={"subtle"} px={2} py={1}>
                       <TagLeftIcon boxSize="30px">
-                        <techno.Icon size={24}></techno.Icon>
+                        <technology.Icon
+                          color={
+                            iconColors[
+                              technology.name.replace(" ", "").toLowerCase()
+                            ]
+                          }
+                          size={24}
+                        ></technology.Icon>
                       </TagLeftIcon>
-                      <TagLabel ml="0">{techno.name}</TagLabel>
+                      <TagLabel ml="0">{technology.name}</TagLabel>
                     </Tag>
                   </WrapItem>
                 ))}

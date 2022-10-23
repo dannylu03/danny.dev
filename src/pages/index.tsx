@@ -1,4 +1,4 @@
-import { Box, Container, useMediaQuery } from "@chakra-ui/react";
+import { Box, Container, Heading, useMediaQuery } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
@@ -7,10 +7,14 @@ import HomePage from "../components/HomePage";
 import NavBar from "../components/NavBar";
 import { experiences } from "../../data/experiences";
 import About from "../components/About";
+import Skills from "../components/Skills";
+import { skills } from "../../data/skills";
+import Languages from "../../data/Languages";
+import Frameworks from "../../data/Frameworks";
+import LibrariesTools from "../../data/LibrariesTools";
 
 const description =
-  "Currently, I’m working @ VISEO as a front-end developer, I live in Grenoble France, with more than 4 years of professional experience I transform ideas into reality using JS, with latest technologies such as React.js, Node.js, Next.js, Redux, Angular2+, I care about code readability and maintainability and actively I use linters and code analysis tools like Prettier, ESLint, StyleLint, I find happiness in being a better me today than I was yesterday. Scroll down to see some of the projects I've been working on.";
-
+  "Voluptate ullamco ex consequat ad consectetur. Ad non et ullamco cillum in duis do ipsum occaecat duis duis irure. Ad dolore laboris ea commodo reprehenderit nisi mollit ullamco officia consequat cillum culpa nulla.";
 const links = [
   {
     name: "About",
@@ -38,12 +42,19 @@ const Index: React.FC = () => {
       <NavBar links={links} />
       <Container as="main" maxW="100%" centerContent>
         <HomePage />
-        <Container maxW="6xl" centerContent>
+        <Container maxW="6xl" mt={-12} centerContent>
           <Box id="about">
             <About description={description} />
           </Box>
           <Box id="projects" mt={12}>
             <Experience experiences={experiences} />
+          </Box>
+          <Box id="skills" width={"100%"} mt={12}>
+            <Skills
+              languages={Languages}
+              frameworks={Frameworks}
+              libraryTools={LibrariesTools}
+            />
           </Box>
         </Container>
       </Container>
