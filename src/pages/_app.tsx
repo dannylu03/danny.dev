@@ -1,23 +1,21 @@
-import { ChakraProvider } from "@chakra-ui/react";
-import type { AppProps } from "next/app";
-import Head from "next/head";
-import theme from "../theme";
+import withDarkMode, { useDarkMode } from "next-dark-mode";
+import type { AppProps as PageProps } from "next/app";
+import { lightTheme, darkTheme } from "../themes/main";
+import { ThemeProvider } from "styled-components";
+import Styles from "../styles/styles";
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+const Portfolio = ({ Component, pageProps }: PageProps) => {
+  const { darkModeActive } = useDarkMode();
+  const theme = darkModeActive ? darkTheme : lightTheme;
+
   return (
     <>
-      <Head>
-        <title>Danny Lu</title>
-      </Head>
-      <ChakraProvider resetCSS theme={theme}>
+      <ThemeProvider theme={{ darkMode: darkModeActive, ...theme }}>
+        <Styles />
         <Component {...pageProps} />
-      </ChakraProvider>
+      </ThemeProvider>
     </>
   );
 };
 
-// function MyApp({ Component, pageProps }: AppProps) {
-//   return <Component {...pageProps} />
-// }
-
-export default MyApp;
+export default withDarkMode(Portfolio);
